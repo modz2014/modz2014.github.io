@@ -30,7 +30,7 @@ function initROP(init)
 		
 		// Overwrite filename and destination path here
 		template_1_file_usb=getdestPath()+getdestFile();
-		template_1_file_hdd0=getdestPath2()+'/'+getdestFile();
+		template_1_file_hdd0=getdestPath2()+'/dev_hdd0'+getdestFile();
 		
 		xtra_data=flash_partition.convert()
 		+filesystem.convert()
@@ -154,7 +154,7 @@ function triggerX()
 	</select></span>
 	<b>Source Path:</b><br>
 	<select name="dpath" id="combodestPath" onchange="getdestPath();" >
-	<option value="/dev_hdd0/boot_plugin.txt">/dev_hdd0/boot_plugin/</option>
+	<option value="boot_plugin.txt">boot_plugin/</option>
 	<option value="/dev_flash2/etc/backup/">/dev_flash2/etc/backup/</option>
 	</select>
 	
