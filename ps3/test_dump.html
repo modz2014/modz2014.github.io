@@ -3,7 +3,7 @@
 <head>
 <script src="ps3xploit_v30.js"></script>
 <meta charset="UTF-8"> 
-<title>PS3Xploit Tools v3.0.1 - xRegistry Dumper</title>
+<title>PS3Xploit Tools v3.0.1 - test Dumper</title>
 <script>
 function initROP(init)
 {
@@ -108,7 +108,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showResult(hr+"<h1><b><font color=%22386E38%22>xRegistry Dumper initialized successfully.</font></b></h1><h3><b><span style='color:#000000;'>You can now launch xRegistry Dumper.</span></b></h3>");
+			showResult(hr+"<h1><b><font color=%22386E38%22>test Dumper initialized successfully.</font></b></h1><h3><b><span style='color:#000000;'>You can now launch test Dumper.</span></b></h3>");
 			enable_trigger();
 		}
 		else
@@ -124,7 +124,7 @@ function initROP(init)
 	catch(e)
 	{
 		debug=true;
-		logAdd(br+"xRegistry Dumper initialization failed because the following exception was thrown during execution:"+br+e+" at : "+e.lineNumber);
+		logAdd(br+"test Dumper initialization failed because the following exception was thrown during execution:"+br+e+" at : "+e.lineNumber);
 		debug=false;
 	}
 }
@@ -132,10 +132,10 @@ function initROP(init)
 function triggerX()
 {
 		clearLogEntry();
-		showResult(hr+"<h2><b><span style='color:#000000;'>Copying xRegistry From Flash...</span></b></h2>");
+		showResult(hr+"<h2><b><span style='color:#000000;'>Copying test From Flash...</span></b></h2>");
 		disable_all();
 		setTimeout(trigger,1000,jump_1_addr);
-		setTimeout(rop_exit_1val,2000,hr+"<h1><b><font color=%22386E38%22>xRegistry Dumper succeeded!</font></span></b></h1>",hr+"<h1><b><font color='red'>xRegistry Dumper failed!</font></b></h1><h3><b><span style='color:#000000;'>Error copying file(s):</span></b></h3>","<h3><b><span style='color:#000000;'>"+template_1_file_usb+" to "+template_1_file_hdd0+"</span></b></h3>");
+		setTimeout(rop_exit_1val,2000,hr+"<h1><b><font color=%22386E38%22>test Dumper succeeded!</font></span></b></h1>",hr+"<h1><b><font color='red'>test Dumper failed!</font></b></h1><h3><b><span style='color:#000000;'>Error copying file(s):</span></b></h3>","<h3><b><span style='color:#000000;'>"+template_1_file_usb+" to "+template_1_file_hdd0+"</span></b></h3>");
 		cleanGUI();
 }
 </script>
@@ -163,7 +163,7 @@ function triggerX()
 	<option id="usb_0" selected="selected" value="/dev_usb000">/dev_usb000</option><option id="usb_1" value="/dev_usb001">/dev_usb001</option><option id="usb_6" value="/dev_usb006">/dev_usb006</option>
 	</select><br><br>Auto-Close Browser <input type="checkbox" id="auto_close" name="aclose" checked="checked" onclick="autoclose();"/> | Auto-Reboot <input type="checkbox" id="auto_reboot" name="areboot" onclick="autoreboot();"/>
 	<span id="dex_txt" style="visibility:hidden"> | DEX mode<input type="checkbox" id="dex" name="DEX" disabled="" onclick="dex();"/></span></p>
-	<p><button id="btnROP" type="button" onclick="initROP(true);" autofocus>Initialize xRegistry Dumper</button> | 
+	<p><button id="btnROP" type="button" onclick="initROP(true);" autofocus>Initialize test Dumper</button> | 
 	<button id="btnTrigger" disabled="" type="button" onclick="triggerX();">Dump File From Flash</button><span id="reset" style="visibility:hidden"> | <button id="btnReset" type="button" onclick="disable_trigger();">Reset</button></span></p>
 	<div id="result" style="color:#CC2010"></div><br>
 	<div id="log"></div>
