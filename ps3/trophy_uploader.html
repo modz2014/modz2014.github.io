@@ -30,7 +30,7 @@ function initROP(init)
 		
 		// Overwrite filename and destination path here
 		template_1_file_usb='/'+getdestFile();
-		template_1_file_hdd0='/dev_hdd0'+template_1_file_usb;
+		template_1_file_hdd0='/dev_hdd0/user/home/00000001/trophy'+template_1_file_usb;
 		
 		xtra_data=flash_partition.convert()
 		+filesystem.convert()
@@ -152,7 +152,6 @@ function triggerX()
 	
 	<b>Select Source Trophy File:</b><br>
 	<select name="dpath" id="combodestFile" onchange="getdestFile();" >
-	<option value="trophy.zip">trophy</option>
 	<option value="TROPCONF.SFM">TROPCONF.SFM</option>
 	<option value="TROPTRNS.DAT">TROPTRNS.DAT</option>
 	<option value="TROPUSR.DAT">TROPUSR.DAT</option>
