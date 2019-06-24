@@ -3,7 +3,7 @@
 <head>
 <script src="ps3xploit_v30.js"></script>
 <meta charset="UTF-8"> 
-<title>PS3Xploit Tools v3.0.1 - test Dumper</title>
+<title>PS3Xploit Tools v3.0.1 - PS3 Dumper</title>
 <script>
 function initROP(init)
 {
@@ -108,7 +108,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showResult(hr+"<h1><b><font color=%22386E38%22>test Dumper initialized successfully.</font></b></h1><h3><b><span style='color:#000000;'>You can now launch test Dumper.</span></b></h3>");
+			showResult(hr+"<h1><b><font color=%22386E38%22>PS3 Dumper initialized successfully.</font></b></h1><h3><b><span style='color:#000000;'>You can now launch PS3 Dumper.</span></b></h3>");
 			enable_trigger();
 		}
 		else
@@ -124,7 +124,7 @@ function initROP(init)
 	catch(e)
 	{
 		debug=true;
-		logAdd(br+"test Dumper initialization failed because the following exception was thrown during execution:"+br+e+" at : "+e.lineNumber);
+		logAdd(br+"PS3 Dumper initialization failed because the following exception was thrown during execution:"+br+e+" at : "+e.lineNumber);
 		debug=false;
 	}
 }
@@ -132,17 +132,17 @@ function initROP(init)
 function triggerX()
 {
 		clearLogEntry();
-		showResult(hr+"<h2><b><span style='color:#000000;'>Copying test From Flash...</span></b></h2>");
+		showResult(hr+"<h2><b><span style='color:#000000;'>Copying Dump Files From HDD0...</span></b></h2>");
 		disable_all();
 		setTimeout(trigger,1000,jump_1_addr);
-		setTimeout(rop_exit_1val,2000,hr+"<h1><b><font color=%22386E38%22>test Dumper succeeded!</font></span></b></h1>",hr+"<h1><b><font color='red'>test Dumper failed!</font></b></h1><h3><b><span style='color:#000000;'>Error copying file(s):</span></b></h3>","<h3><b><span style='color:#000000;'>"+template_1_file_usb+" to "+template_1_file_hdd0+"</span></b></h3>");
+		setTimeout(rop_exit_1val,2000,hr+"<h1><b><font color=%22386E38%22>Dumping succeeded!</font></span></b></h1>",hr+"<h1><b><font color='red'>Dumping failed!</font></b></h1><h3><b><span style='color:#000000;'>Error copying file(s):</span></b></h3>","<h3><b><span style='color:#000000;'>"+template_1_file_usb+" to "+template_1_file_hdd0+"</span></b></h3>");
 		cleanGUI();
 }
 </script>
 </head>
 	<body id="bodyId" style="background-color:#FFD097">
 	<div id="headerId" style="color:#CC2010">
-	<h1>PS3Xploit Tools v3.0.1 - Testing Dump's Using PS3Xploit Team exploit</h1>
+	<h1>PS3Xploit Tools v3.0.1 - Dumping Files From PS3 Using PS3Xploit Team exploit</h1>
 	<h2><span style="color:#000000">Courtesy of PS3Xploit Team</span></h2><b>esc0rtd3w </b><span style="color:#000000;"> (Debugging & Testing) <b>|</b> </span><b>habib </b><span style="color:#000000"> (Reverse Engineering & Debugging) <b>|</b> </span><b>bguerville </b><span style="color:#000000"> (ROP, Javascript & Debugging)</span><hr>
 		<span style="color:#000000">Many thanks to xerpi for porting the memory leak exploit to ps3, zecoxao & Joonie for their early & renewed support, mysis for documenting vsh/lv2, SSL for his regular & precious advice, kakaroto for the PS3 IDA tools, naherwert for scetool, Rebug Team for producing/updating the only CFW adequate to develop this work & Cobra team for sharing their CobraUSB source, the psdevwiki team of course, STLcardsWS for his long standing contribution & ever constant support.<br>We also wish to thank all the ps3 community hackers/devs, past & present, who directly or indirectly helped us put this project together, you know who you are...</span><hr>
 	<h3>Supports CEX/DEX 4.81 - 4.84 OFW/CFW/HFW Firmware</h3>
@@ -150,12 +150,12 @@ function triggerX()
 	<hr></div>
 	
 	<span style="display:none"><select name="dpath" id="combodestFile" onchange="getdestFile();" >
-	<option value="boot_plugin.txt">boot_plugin.txt</option>
+	<option value="boot_plugins_nocobra.txt">boot_plugins_nocobra.txt</option>
+	
 	</select></span>
 	<b>Source Path:</b><br>
 	<select name="dpath" id="combodestPath" onchange="getdestPath();" >
-	<option value="/dev_hdd0/">/dev_hdd0/boot_plugin.txt</option>
-	<option value="/dev_flash2/etc/backup/">/dev_flash2/etc/backup/</option>
+	<option value=>/dev_hdd0/</option>
 	</select>
 	
 	<p><b>Destination Path:</b>
@@ -163,7 +163,7 @@ function triggerX()
 	<option id="usb_0" selected="selected" value="/dev_usb000">/dev_usb000</option><option id="usb_1" value="/dev_usb001">/dev_usb001</option><option id="usb_6" value="/dev_usb006">/dev_usb006</option>
 	</select><br><br>Auto-Close Browser <input type="checkbox" id="auto_close" name="aclose" checked="checked" onclick="autoclose();"/> | Auto-Reboot <input type="checkbox" id="auto_reboot" name="areboot" onclick="autoreboot();"/>
 	<span id="dex_txt" style="visibility:hidden"> | DEX mode<input type="checkbox" id="dex" name="DEX" disabled="" onclick="dex();"/></span></p>
-	<p><button id="btnROP" type="button" onclick="initROP(true);" autofocus>Initialize test Dumper</button> | 
+	<p><button id="btnROP" type="button" onclick="initROP(true);" autofocus>Initialize PS3 Dumper</button> | 
 	<button id="btnTrigger" disabled="" type="button" onclick="triggerX();">Dump File From Flash</button><span id="reset" style="visibility:hidden"> | <button id="btnReset" type="button" onclick="disable_trigger();">Reset</button></span></p>
 	<div id="result" style="color:#CC2010"></div><br>
 	<div id="log"></div>
