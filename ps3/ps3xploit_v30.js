@@ -1,5 +1,7 @@
 var debug=false;
 
+var sp_swap_addr_second=0;
+
 var ua = navigator.userAgent;
 var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
 
